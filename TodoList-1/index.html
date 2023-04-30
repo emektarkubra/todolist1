@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TodoList</title>
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="card row">
+            <div class="card-header">Todo List</div>
+            <div class="card-body">
+                <form id="todo-form">
+                    <input type="text" class="text" id="todo" placeholder="Bir Todo Girin">
+                </form>
+                <input type="submit" value="Todo Ekleyin" id="add-todo" class="todoAddButton">
+                <hr>
+            </div>
+
+            <div class="card-body">
+                <hr>
+                <h3>Todos</h3>
+                <form id="filter-form">
+                    <input type="text" name="text" id="filter-todo" placeholder="Bir Todo Arayın">
+                </form>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item">Todo1
+                        <a href="#" id="delete-item">
+                            <i class="fa fa-close" style="font-size: 12px;"></i>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <input type="submit" name="text" value="Tüm Taskları Temizleyin" id="clear-todos" class="clearButton">
+            </div>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+
+</html>

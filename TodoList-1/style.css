@@ -1,0 +1,109 @@
+.container {
+    border: 1px solid rgba(128, 128, 128, 0.219);
+    width: 60%;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.219);
+    background-color: rgba(220, 220, 220, 0.116);
+    font-size: 18px;
+    padding: 15px;
+    margin-bottom: 30px;
+
+}
+
+#todo {
+    height: 27px;
+    width: 75%;
+    border: 1px solid rgba(128, 128, 128, 0.219);
+    border-radius: 4px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+#todo::placeholder {
+    color: rgba(128, 128, 128, 0.507);
+}
+
+#todo:focus {
+    outline: 0ch;
+    border: 2px solid red;
+}
+
+#add-todo {
+    height: 27px;
+    margin-left: 15px;
+    background-color: rgba(241, 21, 21, 0.884);
+    border: 1px solid rgba(241, 21, 21, 0.884);
+    border-radius: 4px;
+    color: white;
+}
+
+#add-todo:hover {
+    background-color: rgb(252, 7, 7);
+    border: 1px solid rgb(252, 7, 7);
+}
+
+hr {
+    width: 97%;
+    border-color: rgba(128, 128, 128, 0.219);
+    border-top: 1px;
+    margin-top: 30px;
+}
+
+h3 {
+    margin-left: 15px;
+}
+
+#filter-todo {
+    height: 27px;
+    width: 75%;
+    border: 1px solid rgba(128, 128, 128, 0.219);
+    border-radius: 4px;
+    margin-left: 15px;
+    padding-left: 10px;
+
+}
+
+#filter-todo:focus {
+    outline: 0ch;
+    border: 2px solid red;
+}
+
+#clear-todos {
+    height: 27px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    background-color: rgba(36, 34, 34, 0.774);
+    border: 1px solid rgb(36, 34, 34, 0.774);
+    border-radius: 4px;
+    color: white;
+}
+
+
+#clear-todos:hover {
+    background-color: rgb(36, 34, 34);
+    border: 1px solid rgb(36, 34, 34);
+}
+
+ul {
+    padding-right: 40px;
+    padding-left: 20px;
+}
+
+li {
+    display: block;
+}
+
+i {
+    float: right;
+    color: black;
+}
+
+i:hover {
+    color: red;
+}
