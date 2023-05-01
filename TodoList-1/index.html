@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <title>TodoList</title>
@@ -19,27 +20,30 @@
             <div class="card-header">Todo List</div>
             <div class="card-body">
                 <form id="todo-form">
-                    <input type="text" class="text" id="todo" placeholder="Add todo">
+                    <input type="text" class="text" id="todo" placeholder="Add todo"><br>
+                    <input type="submit" value="Add Todo" id="add-todo" class="todoAddButton">
                 </form>
-                <input type="submit" value="Add Todo" id="add-todo" class="todoAddButton">
-                <hr>
+                <!-- <div class="alert alert-warning">
+                    This alert box could indicate a warning that might need attention.
+                  </div> -->
             </div>
-            
+
             <div class="card-body">
                 <hr>
                 <h3>Todos</h3>
                 <form id="filter-form">
                     <input type="text" name="text" id="filter-todo" placeholder="Search todo">
-                    <hr>
+                <hr>
+
                 </form>
-                
-                <!-- <ul class="list-group">
-                    <li class="list-group-item">Todo1
+                <ul class="list-groups">
+                    <!-- <li class="list-group-item">Todo1
                         <a href="#" id="delete-item">
                             <i class="fa fa-close" style="font-size: 12px;"></i>
                         </a>
-                    </li>
-                </ul> -->
+                    </li> -->
+                </ul>
+
                 <hr>
                 <input type="submit" name="text" value="Clear All Tasks" id="clear-todos" class="clearButton">
             </div>
