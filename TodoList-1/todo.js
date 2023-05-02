@@ -3,11 +3,54 @@ const submitButton = document.querySelector("#add-todo");
 const todoList = document.querySelectorAll(".card-body")[1].children[3];
 const cardBody = document.querySelector(".card-body");
 const secondCardBody = document.querySelectorAll(".card-body")[1];
+const clearAllTasksButton = document.querySelector("#clear-todos");
+const filterButton = document.querySelector("#filter-todo");
 
 
 submitButton.addEventListener("click", addTodo);
 document.addEventListener("DOMContentLoaded", getFromStoragetoUi);
-secondCardBody.addEventListener("click", removeItem)
+secondCardBody.addEventListener("click", removeItem);
+clearAllTasksButton.addEventListener("click", clearAllTasks);
+filterButton.addEventListener("keyup", filterTodo)
+
+
+function filterTodo(e) {
+    let filterValue = e.target.value.toLocaleLowerCase().trim();
+    const todos = document.querySelectorAll(".list-group-item");
+
+    if (todos.length > 0) {
+
+        todos.forEach((todo) => {
+            if ((todo.textContent.trim().toLocaleLowerCase()).includes(filterValue)) {
+                todo.setAttribute("style", "display:block")
+            } else {
+                todo.setAttribute("style", "display:none !important");
+            }
+        })
+
+    } else {
+        createAlert("warning", "At least one todo is required to filter");
+    }
+}
+
+
+function clearAllTasks(e) {
+
+    //clear from Ui
+    const todos = document.querySelectorAll(".list-group-item");
+    todos.forEach((todo) => {
+        todo.remove();
+    })
+
+    //clear from Storage
+
+    let todoList = JSON.parse(localStorage.getItem("todoList"));
+    todoList.splice(0, todoList.length);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+
+    createAlert("danger", "Clear all todos");
+
+}
 
 function removeItem(e) {
     // remove item from Ui
@@ -44,6 +87,10 @@ function createAlert(alert, message) {
     div.textContent = message;
     div.style.marginTop = "10px";
     cardBody.appendChild(div);
+
+    setTimeout(() => {
+        cardBody.lastChild.remove();
+    }, 2000);
 }
 
 
@@ -63,11 +110,9 @@ function createTodo(value) {
 
 function addTodo(e) {
     // adding todo to Ui
-    if (todoInput.value === "") {
+    if (todoInput.value === "" || todoInput.value === null) {
         createAlert("warning", "Lütfen bir todo giriniz.");
-        setTimeout(() => {
-            cardBody.lastChild.remove();
-        }, 2000);
+
     } else {
         createTodo(todoInput.value);
         //adding todo to Storage
@@ -75,7 +120,10 @@ function addTodo(e) {
     }
     todoInput.value = "";
     e.preventDefault();
+    createAlert("success", "Added todo");
 }
+
+
 
 function addTodotoStorage() {
 
