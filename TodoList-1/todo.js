@@ -1,103 +1,30 @@
 const todoInput = document.querySelector("#todo");
 const submitButton = document.querySelector("#add-todo");
-const todoList = document.querySelectorAll(".card-body")[1].children[3];
+const todoList = document.querySelector(".list-groups");
 const cardBody = document.querySelector(".card-body");
 const secondCardBody = document.querySelectorAll(".card-body")[1];
-const clearAllTasksButton = document.querySelector("#clear-todos");
-const filterButton = document.querySelector("#filter-todo");
+const filterInput = document.querySelector("#filter-todo");
+const removeAllTasksButton = document.querySelector("#clear-todos");
 
 
-submitButton.addEventListener("click", addTodo);
-document.addEventListener("DOMContentLoaded", getFromStoragetoUi);
-secondCardBody.addEventListener("click", removeItem);
-clearAllTasksButton.addEventListener("click", clearAllTasks);
-filterButton.addEventListener("keyup", filterTodo)
+createEvents();
 
+function createEvents() {
 
-function filterTodo(e) {
-    let filterValue = e.target.value.toLocaleLowerCase().trim();
-    const todos = document.querySelectorAll(".list-group-item");
-
-    if (todos.length > 0) {
-
-        todos.forEach((todo) => {
-            if ((todo.textContent.trim().toLocaleLowerCase()).includes(filterValue)) {
-                todo.setAttribute("style", "display:block")
-            } else {
-                todo.setAttribute("style", "display:none !important");
-            }
-        })
-
-    } else {
-        createAlert("warning", "At least one todo is required to filter");
-    }
-}
-
-
-function clearAllTasks(e) {
-
-    //clear from Ui
-    const todos = document.querySelectorAll(".list-group-item");
-    todos.forEach((todo) => {
-        todo.remove();
-    })
-
-    //clear from Storage
-
-    let todoList = JSON.parse(localStorage.getItem("todoList"));
-    todoList.splice(0, todoList.length);
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-
-    createAlert("danger", "Clear all todos");
+    submitButton.addEventListener("click", addTodo);
+    document.addEventListener("DOMContentLoaded", loadTodoToUi);
+    secondCardBody.addEventListener("click", removeItem);
+    filterInput.addEventListener("keyup", filterTodos);
+    removeAllTasksButton.addEventListener("click", removeAllTasks);
 
 }
-
-function removeItem(e) {
-    // remove item from Ui
-    if (e.target.className === "fa fa-close") {
-        e.target.parentElement.parentElement.remove();
-    }
-    // remove item from Storage
-    removeItemFromStorage(e);
-
-}
-
-
-function removeItemFromStorage(e) {
-    let todoList = JSON.parse(localStorage.getItem("todoList"));
-
-    if (e.target.className === "fa fa-close") {
-        let index = todoList.indexOf(e.target.parentElement.parentElement.textContent);
-        todoList.splice(index, 1);
-    }
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-}
-
-
-function getFromStoragetoUi() {
-    let todos = JSON.parse(localStorage.getItem("todoList"));
-    todos.forEach((todo) => {
-        createTodo(todo);
-    })
-}
-
-function createAlert(alert, message) {
-    const div = document.createElement("div");
-    div.className = `alert alert-${alert}`;
-    div.textContent = message;
-    div.style.marginTop = "10px";
-    cardBody.appendChild(div);
-
-    setTimeout(() => {
-        cardBody.lastChild.remove();
-    }, 2000);
-}
-
 
 function createTodo(value) {
+
     const li = document.createElement("li");
     li.className = "list-group-item";
     li.textContent = value;
+    // li.style.width = "100%"
     const a = document.createElement("a");
     a.href = "#";
     a.id = "delete-item";
@@ -105,35 +32,106 @@ function createTodo(value) {
     i.className = "fa fa-close";
     i.style.fontSize = "12px";
     todoList.appendChild(li).appendChild(a).appendChild(i);
+
 }
 
+function createAlert(alert, message) {
+
+    const div = document.createElement("div");
+    div.className = `alert alert-${alert}`;
+    div.textContent = message;
+    div.style.marginTop = "10px";
+    cardBody.appendChild(div);
+
+    setTimeout(() => {
+        cardBody.lastElementChild.remove();
+    }, 2000);
+
+}
 
 function addTodo(e) {
-    // adding todo to Ui
-    if (todoInput.value === "" || todoInput.value === null) {
-        createAlert("warning", "Lütfen bir todo giriniz.");
 
+    if (todoInput.value.trim() === "" || todoInput.value === null) {
+        createAlert("warning", "Please, enter a todo!");
     } else {
+        // adding to Ui
         createTodo(todoInput.value);
-        //adding todo to Storage
-        addTodotoStorage();
+
+        // adding to Storage
+        addTodoToStorage(e);
+        todoInput.value = "";
+
+        // alert
+        createAlert("success", "Added todo")
     }
-    todoInput.value = "";
     e.preventDefault();
-    createAlert("success", "Added todo");
+
 }
 
+function addTodoToStorage(e) {
 
-
-function addTodotoStorage() {
-
-    if (localStorage.getItem("todoList") === null) {
+    if (JSON.parse(localStorage.getItem("todoList")) == null) {
         let todoList = [];
-        todoList.push(todoInput.value);
+        todoList.push(todoInput.value.trim());
         localStorage.setItem("todoList", JSON.stringify(todoList));
     } else {
         let todoList = JSON.parse(localStorage.getItem("todoList"));
-        todoList.push(todoInput.value);
+        todoList.push(todoInput.value.trim());
         localStorage.setItem("todoList", JSON.stringify(todoList));
     }
+
+}
+
+function loadTodoToUi() {
+
+    let todoList = JSON.parse(localStorage.getItem("todoList"));
+    todoList.forEach(todo => {
+        createTodo(todo);
+    });
+
+}
+
+function removeItem(e) {
+
+    if (e.target.className === "fa fa-close") {
+        // remove item from Ui
+        e.target.parentElement.parentElement.remove();
+
+        // remove item from storage
+        let todoList = JSON.parse(localStorage.getItem("todoList"));
+        let index = todoList.indexOf(e.target.parentElement.parentElement.textContent);
+        todoList.splice(index, 1);
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+
+        // alert
+        createAlert("info", "Removed a todo");
+    };
+
+}
+
+function filterTodos(e) {
+
+    let filterValue = e.target.value.toLocaleLowerCase().trim();
+    const todos = document.querySelectorAll(".list-group-item");
+    todos.forEach((todo) => {
+        if ((todo.textContent.toLocaleLowerCase().trim()).includes(filterValue)) {
+            todo.setAttribute("style", "display:block");
+        } else {
+            todo.setAttribute("style", "display:none");
+        }
+    });
+
+}
+
+function removeAllTasks(e) {
+    // remove from Ui
+    const todos = document.querySelectorAll(".list-group-item");
+    todos.forEach((todo) => {
+        todo.remove();
+    })
+
+    // remove from storage
+    let todoList = JSON.parse(localStorage.getItem("todoList"));
+    todoList.splice(0, todoList.length);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
 }
