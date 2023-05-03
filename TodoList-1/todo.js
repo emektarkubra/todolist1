@@ -7,6 +7,7 @@ const filterInput = document.querySelector("#filter-todo");
 const removeAllTasksButton = document.querySelector("#clear-todos");
 
 
+
 createEvents();
 
 function createEvents() {
