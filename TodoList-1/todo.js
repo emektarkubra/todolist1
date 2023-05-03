@@ -103,9 +103,6 @@ function removeItem(e) {
         let index = todoList.indexOf(e.target.parentElement.parentElement.textContent);
         todoList.splice(index, 1);
         localStorage.setItem("todoList", JSON.stringify(todoList));
-
-        // alert
-        createAlert("info", "Removed a todo");
     };
 
 }
@@ -135,4 +132,7 @@ function removeAllTasks(e) {
     let todoList = JSON.parse(localStorage.getItem("todoList"));
     todoList.splice(0, todoList.length);
     localStorage.setItem("todoList", JSON.stringify(todoList));
+
+    // alert
+    createAlert("danger", "Removed all tasks!");
 }
