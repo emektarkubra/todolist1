@@ -1,0 +1,212 @@
+body {
+    background-color: rgb(61, 60, 60);
+}
+
+.container {
+    border: 1px solid rgb(17, 16, 16);
+    background-color: rgb(17, 16, 16);
+    width: 45%;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+    
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.219);
+    background-color: rgb(17, 16, 16);
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.card-header:hover {
+    text-shadow: 0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue;
+    color: white;
+}
+
+label {
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;;
+    margin-left: 90px;
+}
+
+
+#todo-form:hover {
+    text-shadow: 0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue
+}
+
+#filter-form:hover {
+    text-shadow: 0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue
+}
+
+.todo-text {
+    margin-bottom: 25px;
+}
+
+#add-todo {
+    height: 30px;
+    width: 350px;
+    color: aliceblue;
+    background-color: rgba(17, 16, 16, 0);
+    border: 0ch;
+    border-bottom: 1px solid aliceblue;
+    margin-left: 90px;
+    margin-bottom: 15px;
+}
+
+#add-todo::placeholder {
+    color: aliceblue;
+}
+
+#add-todo:focus {
+    outline: 0ch;
+    border-bottom: 1px solid aliceblue;
+}
+
+#add-todo:hover {
+    border-bottom: 2px solid aliceblue;
+}
+
+#done-item {
+    margin-right: 5px;
+}
+
+hr {
+    width: 97%;
+    border-color: rgba(128, 128, 128, 0.219);
+    border-top: 1px;
+    margin-top: 30px;
+}
+
+#filter-todo {
+    height: 30px;
+    width: 350px;
+    color: aliceblue;
+    background-color: rgba(17, 16, 16, 0);
+    border: 0ch;
+    border-bottom: 1px solid aliceblue;
+    margin-left: 90px;
+ 
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 90px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#filter-todo::placeholder {
+    color: aliceblue;
+}
+
+#filter-todo:focus {
+    outline: 0ch;
+}
+
+#filter-todo:hover {
+    border-bottom: 2px solid aliceblue;
+}
+
+ul {
+    margin-left: 18px;
+    padding-right: 40px;
+    padding-left: 20px;
+}
+
+.list-group-item {
+    background-color: rgb(17, 16, 16);
+    border: 1px solid  rgba(128, 128, 128, 0.219);
+    margin-bottom: 2px;
+}
+
+.list-group-item:hover {
+    box-shadow: 0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue,
+                0 0 1px aliceblue;
+    border:2px solid white;
+}
+
+li {
+    display: block;
+}
+
+#item-input {
+    width: 350px;
+    height: 30px;
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color:rgb(17, 16, 16);
+    border: none;
+}
+
+#item-input:focus {
+    outline: 0ch;
+}
+
+.fa-close {
+    float: right;
+    margin: none;
+    margin-left: 5px;
+    color: rgba(201, 190, 190, 0.219);
+    margin-top: 6px;
+   
+}
+
+.fa-close:hover {
+    color:aliceblue;
+}
+
+.fa-edit {
+    float: right;
+    margin: none;
+    margin-left: 5px;
+    color: rgba(201, 190, 190, 0.219);
+    margin-top: 7px;
+}
+
+.fa-edit:hover {
+    color:aliceblue;
+}
+
+#clear-todos {
+    height: 35px;
+    width: 70px;
+    font-family: 'Times New Roman', Times, serif;;
+    margin-left: 225px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    background-color: rgb(17, 16, 16);
+    border: 1px solid aliceblue;
+    border-radius: 4px;
+    color:aliceblue;
+}
+
+#clear-todos:hover {
+    background-color: aliceblue;
+    color: rgb(17, 16, 16);
+    font-weight: bold;
+    box-shadow: 0 0 5px aliceblue,
+                0 0 5px aliceblue,
+                0 0 5px aliceblue,
+                0 0 5px aliceblue;
+    border:0ch;
+}

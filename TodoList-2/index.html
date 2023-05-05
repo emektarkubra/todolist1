@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TodoList</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card row">
+            <div class="card-header">Task List 2023</div>
+            <div class="card-body">
+                <form id="todo-form">
+
+                    <label for="todo">Add task</label><br>
+                    <input type="text" class="text" id="add-todo">
+
+                </form>
+            </div>
+
+            <div class="card-body">
+                <form id="filter-form">
+                    <label for="filter-todo">Search task</label><br>
+                    <input type="text" name="text" id="filter-todo">
+                </form>
+                <!-- ALERT -->
+                <p>Lütfen bir todo giriniz...</p>
+
+                <ul class="list-groups">
+
+                    <li class="list-group-item">
+                        <form id="item-form" action="#">
+                            <input type="checkbox" id="done-item">
+                            <input type="text" id="item-input" value="Todo1">
+                            <i class="fa fa-close" style="font-size: 18px;"></i>
+                            <i class="fa fa-edit" style="font-size: 18px;"></i>
+                        </form>
+                    </li>
+
+                    <li class="list-group-item">
+                        <form id="item-form" action="#">
+                            <input type="checkbox" id="done-item">
+                            <input type="text" id="item-input" value="Todo2">
+                            <i class="fa fa-close" style="font-size: 18px;"></i>
+                            <i class="fa fa-edit" style="font-size: 18px;"></i>
+                        </form>
+                    </li>
+
+                    <li class="list-group-item">
+                        <form id="item-form" action="#">
+                            <input type="checkbox" id="done-item">
+                            <input type="text" id="item-input" value="Todo3">
+                            <i class="fa fa-close" style="font-size: 18px;"></i>
+                            <i class="fa fa-edit" style="font-size: 18px;"></i>
+                        </form>
+                    </li>
+
+                </ul>
+
+                <input type="submit" name="text" value="CLEAR" id="clear-todos" class="clearButton">
+            </div>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+
+</html>
