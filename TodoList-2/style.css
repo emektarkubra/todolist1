@@ -88,6 +88,14 @@ label {
     border-bottom: 2px solid aliceblue;
 }
 
+
+.alert {
+    /* border: 1px solid red; */
+    width: 350px;
+    margin-left: 90px;
+    padding-left: 0px;
+}
+
 #done-item {
     margin-right: 5px;
 }
