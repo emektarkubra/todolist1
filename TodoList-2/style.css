@@ -5,7 +5,7 @@ body {
 .container {
     border: 1px solid rgb(17, 16, 16);
     background-color: rgb(17, 16, 16);
-    width: 45%;
+    width: 550px;
     border-radius: 15px;
     margin: auto;
     margin-top: 80px;
@@ -15,14 +15,19 @@ body {
     
 }
 
+.row {
+    border-radius: 15px;
+}
+
 .card-header {
-    border-bottom: 1px solid rgba(128, 128, 128, 0.219);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.219); /*BURASI*/;
     background-color: rgb(17, 16, 16);
     color: aliceblue;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     padding: 15px;
     margin-bottom: 30px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -209,4 +214,39 @@ li {
                 0 0 5px aliceblue,
                 0 0 5px aliceblue;
     border:0ch;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container {background: rgb(17, 16, 16);
+                box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+                width: 550px;}
+}
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .container {background: rgb(17, 16, 16);
+                box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+                width: 550px;}    
+}
+  
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .container {background: rgb(17, 16, 16);
+                box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+                width: 550px;}
+} 
+  
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .container {background: rgb(17, 16, 16);
+                box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+                width: 550px;}
+} 
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container {background: rgb(17, 16, 16);
+                box-shadow: 10px 10px 10px 0px rgb(29, 28, 28);
+                width: 550px;}
 }
