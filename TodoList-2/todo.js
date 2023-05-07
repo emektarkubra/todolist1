@@ -18,39 +18,32 @@ todoList.addEventListener("click", editTodos);
 
 
 function editTodos(e) {
-    // editing todo
+    // editing in Ui
     if (e.target.className === "fa fa-edit") {
         let textInput = e.target.previousElementSibling.previousElementSibling;
-
-        // focus todo input
+        // 1.step : focusing todo input
         textInput.removeAttribute("disabled");
         textInput.style.textShadow = "0 0 2px aliceblue";
         textInput.focus();
 
-        // edit todo in Ui
+
         const textForm = e.target.parentElement;
+        //3.step : get todoList from storage and get index 
+        let todoList = JSON.parse(localStorage.getItem("todoList")); // 
+        let index = todoList.indexOf(e.target.previousElementSibling.previousElementSibling.value);
+
         textForm.addEventListener("submit", (e) => {
-
-            // // edit in storage
-            // let todos = JSON.parse(localStorage.getItem("todoList"));
-            // let index = todos.indexOf(textInput.value);
-            // console.log(textInput.value);
-            // console.log(index);
-            // todos.splice(index, 1, textInput.value);
-            // localStorage.setItem("todoList", JSON.stringify(todos));
-
-
+            //2.step : blurred todo input
             textInput.setAttribute("disabled", "disabled:disabled");
             textInput.removeAttribute("style", "textShadow:none");
             textInput.blur();
+
+            // 4.step : send new value to storage
+
+            todoList.splice(index, 1, e.target.children[1].value);
+            localStorage.setItem("todoList", JSON.stringify(todoList));
         })
     }
-
-
-
-
-
-    // splice(2,0,“hundai”);
 }
 
 
@@ -187,7 +180,4 @@ function checkTodos(e) {
             todoInput.removeAttribute("style", "text-decoration:line-through");
         }
     }
-
-
-
 }
