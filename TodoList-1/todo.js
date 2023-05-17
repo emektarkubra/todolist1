@@ -6,8 +6,6 @@ const secondCardBody = document.querySelectorAll(".card-body")[1];
 const filterInput = document.querySelector("#filter-todo");
 const removeAllTasksButton = document.querySelector("#clear-todos");
 
-
-
 createEvents();
 
 function createEvents() {
@@ -104,7 +102,6 @@ function removeItem(e) {
         todoList.splice(index, 1);
         localStorage.setItem("todoList", JSON.stringify(todoList));
     };
-
 }
 
 function filterTodos(e) {
@@ -118,7 +115,6 @@ function filterTodos(e) {
             todo.setAttribute("style", "display:none");
         }
     });
-
 }
 
 function removeAllTasks(e) {
