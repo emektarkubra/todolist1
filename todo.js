@@ -23,7 +23,6 @@ function createTodo(value) {
     const li = document.createElement("li");
     li.className = "list-group-item";
     li.textContent = value;
-    // li.style.width = "100%"
     const a = document.createElement("a");
     a.href = "#";
     a.id = "delete-item";
