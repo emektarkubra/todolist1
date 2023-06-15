@@ -25,15 +25,15 @@ To get this project on your local machine, you first need to clone it using the 
 Clone Repository using 
 
 ```javascript
-git clone git@github.com:amrendrakind/ToDoList.git
+git clone git@github.com:emektarkubra/todo-list-1.git
 ```
 OR using HTTPS
 ```javascript
-git clone https://github.com/amrendrakind/ToDoList.git
+git clone https://github.com/emektarkubra/todo-list-1.git
 ````
 move into project directory
 ```javascript
-cd ToDoList
+cd todo-list-1
 ```
 Install Project dependancies using NPM
 ```javascript
