@@ -33,15 +33,6 @@ OR using HTTPS
 ```javascript
 git clone https://github.com/emektarkubra/todolist1.git
 ````
-move into project directory
-```javascript
-cd todolist1
-```
-Install Project dependancies using NPM
-```javascript
-npm install
-```
-
 ###  How to use
 
 After clone, open index.html in your extended browser and start adding new todos
